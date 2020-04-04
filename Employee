@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgObj404
+{
+    class Employee
+    {
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        private string Login { get; set; } = "Login";
+        string Password { get; set; } = "Password";
+
+        private int age;
+        public int Age {
+            get {
+                
+                return age;
+
+            }
+            set {
+
+                age = value;
+            
+            }
+        }
+        public decimal Salary { get; private set; }
+
+        public enum Education { 
+        
+            Primary,
+            Secondary,
+            Higher
+
+        }
+
+        public Education ItsEducation { get; set; }
+
+        public Employee(string login, string password, decimal salary) {
+
+            Login = login;
+            Password = password;
+            Salary = salary;
+
+        }
+
+        public bool IsAdult() {
+
+            if (age >= 18)
+            {
+
+                return true;
+            }
+            else {
+
+                return false;
+            }
+        
+        }
+
+        public bool IsAdult2() {
+
+            return age >= 18 ? true : false;
+
+        }
+
+        public bool CheckLogin(string login, string password) {
+
+            if (Login == login && Password == password)
+            {
+
+                return true;
+
+            }
+            else {
+
+                return false;
+
+            }
+
+        }
+
+        public void Print() {
+
+            Console.WriteLine($"First Name is: {FirstName}");
+            Console.WriteLine($"Last Name is: {LastName}");
+            Console.WriteLine($"Age: {Age}");
+            Console.WriteLine($"Salary: {Salary}");
+            Console.WriteLine($"Education: {ItsEducation}");
+
+        }
+
+        public string FullName {
+
+            get { return $"Name: {FirstName} {LastName}"; }
+
+        }
+
+        public string FullName1()=> $"Name: {FirstName} {LastName}";
+
+
+        ~Employee() {
+
+            Console.WriteLine("Bye bye!");
+        
+        }
+
+
+    }
+}
