@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgObj404
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Hello world!");
+
+            Employee jose = new Employee("Login","Password",3000.00m);
+            jose.FirstName = "Jose";
+            jose.LastName = "Carbonara";
+            //jose.Salary = 3000.00m;
+            jose.Age = 27;
+
+            Employee giorgio = new Employee("Log","Pass",3600.96m);
+            giorgio.FirstName = "Giorgio";
+            giorgio.LastName = "Putanesca";
+            //giorgio.Salary = 3600.96m;
+            giorgio.Age = 15;
+
+            Console.WriteLine($"First Name is: {jose.FirstName}");
+            Console.WriteLine($"Last Name is: {jose.LastName}");
+            Console.WriteLine($"Age: {jose.Age}");
+            Console.WriteLine($"Salary: {jose.Salary}");
+
+            Console.WriteLine("*********************************");
+            
+            giorgio.ItsEducation = Employee.Education.Higher;
+            giorgio.Print();
+            
+
+
+
+            Console.WriteLine("*********************************");
+            Console.WriteLine(jose.IsAdult());
+            Console.WriteLine(giorgio.IsAdult2());
+            
+            Console.WriteLine("*********************************");
+            Console.WriteLine(jose.CheckLogin("Login","Password"));
+            Console.WriteLine(giorgio.CheckLogin("Log", "Pass"));
+
+            Console.WriteLine("*********************************");
+            Employer employer = new Employer();
+            employer.Add(jose);
+            employer.Add(giorgio);
+            employer.Display();
+
+            Console.WriteLine("*********************************");
+            List<Employee> EmployeeList = new List<Employee>();
+            EmployeeList.Add(jose);
+            EmployeeList.Add(giorgio);
+            Console.WriteLine($"List contains: {EmployeeList.Count()} employees");
+
+            Console.WriteLine("*********************************");
+
+            foreach (var employee in EmployeeList) {
+
+                Console.WriteLine($"employee: {employee.FirstName} {employee.LastName}");
+
+            }
+
+            Console.WriteLine("*********************************");
+
+            Console.WriteLine(jose.FullName);
+            Console.WriteLine(giorgio.FullName1());
+
+            Console.WriteLine("*********************************");
+
+            
+
+            Console.ReadKey();
+        }
+    }
+}
