@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgObj404
+{
+    class Employer
+    {
+
+        Employee[] employees = new Employee[100];
+        int employeeId = 0;
+
+        public void Add(Employee employee) {
+
+            employees[employeeId++] = employee;
+        
+        }
+
+        public void Display() {
+
+            for (int i = 0; i < employeeId; i++) {
+
+                Console.WriteLine($"{i+1}.Employee: {employees[i].FirstName} {employees[i].LastName}");
+            
+            }
+        }
+    }
+}
